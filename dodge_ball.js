@@ -1,7 +1,8 @@
 var sketchProc=function(processingInstance){ with (processingInstance){
-size(400, 400); 
+size(800, 800); 
 frameRate(60);
-
+var sFactor = 2;
+scale(sFactor);;
 
 /* Dodge ball */
 
@@ -58,7 +59,8 @@ var customChar = function(){
         notCreated = 1;
     background(16, 77, 92);
     pushMatrix();
-    translate(200, 200);
+    translate(width/(sFactor*2), height/(sFactor*2));
+	
     rotate(0);
     fill(0,0,0);
     triangle(0, -80, 30, -50, -30, -50);
@@ -68,13 +70,13 @@ var customChar = function(){
     ellipse(0, 25, 60, 20);
     fill(255, 255, 255);
     ellipse(-10, -50, 10,10);
-    ellipse(10, -50, 10,10);
-    popMatrix();  
-    myImages.push(get(161, 120, 75, 120));
+    ellipse(10, -50, 10,10);  
+    popMatrix();
+    myImages.push(get(161*sFactor, 120*sFactor, 75*sFactor, 120*sFactor));
     
     background(16, 77, 92);
     pushMatrix();
-    translate(200, 200);
+    translate(width/(sFactor*2), height/(sFactor*2));
     rotate(-50);
     fill(0,0,0);
     triangle(0, -80, 30, -50, -30, -50);
@@ -86,11 +88,11 @@ var customChar = function(){
     ellipse(-10, -50, 10,10);
     ellipse(10, -50, 10,10);
     popMatrix();  
-    myImages.push(get(161, 120, 75, 120));
+    myImages.push(get(161*sFactor, 120*sFactor, 75*sFactor, 120*sFactor));
     
     background(16, 77, 92);
     pushMatrix();
-    translate(200, 200);
+    translate(width/(sFactor*2), height/(sFactor*2));
     rotate(50);
     fill(0,0,0);
     triangle(0, -80, 30, -50, -30, -50);
@@ -102,12 +104,12 @@ var customChar = function(){
     ellipse(-10, -50, 10,10);
     ellipse(10, -50, 10,10);
     popMatrix();  
-    myImages.push(get(161, 120, 75, 120));
+    myImages.push(get(161*sFactor, 120*sFactor, 75*sFactor, 120*sFactor));
     
     background(16, 77, 92);
     pushMatrix();
     noStroke();
-    translate(200, 200);
+    translate(width/(sFactor*2), height/(sFactor*2));
     rotate(0);
     fill(70, 204, 25);
     triangle(0, -80, 30, -50, -30, -50);
@@ -119,7 +121,7 @@ var customChar = function(){
     ellipse(-10, -50, 10,10);
     ellipse(10, -50, 10,10);
     popMatrix(); 
-    myImages.push(get(161, 120, 75, 120));
+    myImages.push(get(161*sFactor, 120*sFactor, 75*sFactor, 120*sFactor));
     }
 };
 
@@ -370,8 +372,8 @@ var time = 3;
 var userStart = 0;
 
 mouseClicked = function() {
-    if(mouseX >180 && mouseX < 220){
-        if(mouseY >350 && mouseX < 400){
+    if(mouseX >(width/2-20*sFactor) && mouseX < (width/2+20*sFactor)){
+        if(mouseY >(height - 50*sFactor) && mouseX < height){
             userStart = 1;
         }
     } 
